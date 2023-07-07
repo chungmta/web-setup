@@ -67,7 +67,11 @@ module.exports = async (env, agrv) => {
           exclude: /node_modules/
         },
         {
-          test: /\.(s[ac]ss|css)$/,
+          test: /\.css$/i,
+          use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+        },
+        {
+          test: /\.(s[ac]ss)$/,
           use: [
             MiniCssExtractPlugin.loader,
             {
